@@ -1,0 +1,62 @@
+<h1>Create your blog post</h1>
+
+<form action="/posts" method="POST">
+    <!-- <label for="title">Blog Title:</label><br>
+    <input type="text" name="title" placeholder="My article"><br>
+    <label for="body">Blog Content:</label><br>
+    <textarea name="body">Write you content here...</textarea><br>
+    <input type="submit" value="Create blog"> -->
+
+    <!-- <button type="submit" class="btn btn-primary">Create blog</button> -->
+
+    <div class="mb-3">
+        <label for="title" class="form-label">Blog Title:</label>
+        <input type="text" name="title" class="form-control" placeholder="My article">
+    </div>
+
+    <div class="mb-3">
+        <label for="body" class="form-label">Blog Content:</label>
+        <textarea name="body" class="form-control" placeholder="Write you content here..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create blog</button>
+
+</form>
+
+
+<!-- <% if (posts.length) { %>
+    <h2 class="mb-4">Your blog post:</h2>
+
+    <% posts.forEach(p => { %>
+        <article>
+            <p>Title: <%= p.title %></p>
+            <p>Content: <%= p.body %></p>
+
+            <div>
+                <a href="/posts/<%= p.id %>/edit">Edit</a>
+                <form action="/posts/<%= p.id %>?method=DELETE" method="POST">
+                    <button>Delete</button>
+                </form>
+            </div>
+        </article>
+   <% }) %>
+<% } %> -->
+
+
+<% if (posts.length) { %>
+    <h2 class="mb-4 mt-5">Your blog post:</h2>
+
+    <% posts.forEach(p => { %>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Title: <%= p.title %></h5>
+                <p class="card-text">Content: <%= p.body %></p>
+
+                <a href="/posts/<%= p.id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+                <form action="/posts/<%= p.id %>?method=DELETE" method="POST" class="d-inline">
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                </form>
+                
+            </div>
+        </div>
+   <% }) %>
+<% } %>

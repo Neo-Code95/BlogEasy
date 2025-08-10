@@ -1,0 +1,19 @@
+<h2>Edit blog post</h2>
+
+<form action="/posts/<%= post.id %>?method=PUT" method="POST">
+    <div class="mb-3">
+        <label class="form-label">Title:</label>
+        <input name="title" value="<%= post.title %>" required class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Blog content:</label>
+        <textarea name="body" class="form-control"><%= post.body %></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-25">Update blog</button>
+</form>
+
+<form action="/posts/<%= post.id %>?method=DELETE" method="POST" class="d-inline">
+    <button type="submit" class="btn btn-danger mt-2 w-25">Delete blog</button>
+</form>
